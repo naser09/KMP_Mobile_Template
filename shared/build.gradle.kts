@@ -108,8 +108,8 @@ android {
 }
 sqldelight{
     databases{
-        create("BNP_DB"){
-            packageName.set("com.bnp")
+        create("KMP_DB"){
+            packageName.set("com.kmp")
         }
     }
 }

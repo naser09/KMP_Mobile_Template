@@ -1,4 +1,4 @@
-rootProject.name = "BNP"
+rootProject.name = "KMM Template"
 
 include(":androidApp")
 include(":shared")
