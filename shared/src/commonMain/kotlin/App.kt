@@ -30,8 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.transitions.SlideTransition
-import korlibs.io.async.delay
-import korlibs.time.TimeSpan
+import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import presentation.home_screen.HomeScreen
@@ -65,7 +64,7 @@ fun App() {
             }
             LaunchedEffect(Unit){
                 while (true){
-                    delay(TimeSpan(2000.0))
+                    delay(1000)
                     val page = if (pagerstete.currentPage+1>pagerstete.pageCount-1) 0 else pagerstete.currentPage+1
                     println("page = $page")
                     pagerstete.animateScrollToPage(page)
@@ -87,7 +86,8 @@ fun App() {
                     Spacer(Modifier.width(3.dp).height(2.dp))
                 }
             }
-            Navigator(screen = HomeScreen, onBackPressed = {
+            Navigator(screen = HomeScreen,
+                onBackPressed = {
                 println("Back pressed")
                 true }){ navigator ->
                 SlideTransition(

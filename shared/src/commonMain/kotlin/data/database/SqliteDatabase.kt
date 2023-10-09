@@ -1,5 +1,6 @@
 package data.database
 
+import app.cash.sqldelight.db.SqlDriver
 import com.kmp.KMP_DB
 
 interface SqliteDatabase{

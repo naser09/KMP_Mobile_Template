@@ -21,14 +21,13 @@ kotlin {
             isStatic = true
         }
     }
-
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
-                implementation(compose.animation)
+             //   implementation(compose.animation)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
                 //serialization
@@ -38,7 +37,7 @@ kotlin {
                 //ktor client
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 //firebase auth
-                implementation(libs.firebase.auth)
+                //implementation(libs.firebase.auth)
                 //multiplatform setting
                 implementation(libs.multiplatform.settings.no.arg)
                 //voyeger
@@ -47,10 +46,10 @@ kotlin {
                 implementation(libs.voyager.koin)
                 //koin
                 implementation(libs.koin.core)
-                implementation(libs.koin.compose)
-                implementation(libs.koin.coroutine)
+               // implementation(libs.koin.compose)
+                //implementation(libs.koin.coroutine)
                 //korim 
-                implementation(libs.korim)
+             //   implementation(libs.korim)
                 //sqldelight
                 implementation(libs.sqldelight.coroutine)
             }

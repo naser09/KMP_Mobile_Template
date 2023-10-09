@@ -5,9 +5,9 @@ import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope
 import domain.model.User
 import domain.use_cases.user.GetUsers
-import korlibs.io.async.launch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 
 class ListScreenViewModel(
     private val getUsers: GetUsers

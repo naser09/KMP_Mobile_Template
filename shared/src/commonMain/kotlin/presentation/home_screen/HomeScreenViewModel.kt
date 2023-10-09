@@ -3,10 +3,9 @@ package presentation.home_screen
 import androidx.compose.runtime.mutableStateOf
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope
-import korlibs.io.async.delay
-import korlibs.io.async.launch
-import korlibs.time.TimeSpan
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeScreenViewModel :ScreenModel{
     private var job:Job? = null
@@ -14,7 +13,7 @@ class HomeScreenViewModel :ScreenModel{
     fun startCoroutine(){
         job = coroutineScope.launch {
             while (true){
-                delay(TimeSpan(1000.0))
+                delay(1000)
                 seconds.value+=1
             }
         }
