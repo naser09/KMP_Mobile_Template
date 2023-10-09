@@ -1,5 +1,5 @@
 CREATE TABLE user_entity(
-  id INTEGER PRIMARY KEY NOT NULL,
+  id INTEGER  PRIMARY KEY NOT NULL,
   full_name TEXT NOT NULL
 );
 
@@ -7,3 +7,13 @@ CREATE INDEX user_full_name ON user_entity(full_name);
 
 INSERT INTO user_entity (id, full_name)
 VALUES (15, 'Ryan Getzlaf');
+
+get_users:
+SELECT * FROM user_entity;
+
+get_user_by_id:
+SELECT * FROM user_entity WHERE id=:user_id;
+
+create_user:
+INSERT INTO user_entity (full_name)
+VALUES (?);

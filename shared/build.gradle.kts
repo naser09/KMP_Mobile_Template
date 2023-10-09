@@ -47,8 +47,12 @@ kotlin {
                 implementation(libs.voyager.koin)
                 //koin
                 implementation(libs.koin.core)
+                implementation(libs.koin.compose)
+                implementation(libs.koin.coroutine)
                 //korim 
-                implementation("com.soywiz.korlibs.korim:korim:4.0.10")
+                implementation(libs.korim)
+                //sqldelight
+                implementation(libs.sqldelight.coroutine)
             }
         }
         val commonTest by getting {
@@ -64,7 +68,7 @@ kotlin {
                 api("androidx.appcompat:appcompat:1.6.1")
                 api("androidx.core:core-ktx:1.12.0")
                 //sql driver
-                implementation(libs.android.driver)
+                implementation(libs.sqldelight.androiddriver)
                 //ktor engine
                 implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
                 implementation(libs.koin.android)
@@ -80,7 +84,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
-                implementation(libs.native.driver)
+                implementation(libs.sqldelight.nativedriver)
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
             }
         }
@@ -110,6 +114,17 @@ sqldelight{
     databases{
         create("KMP_DB"){
             packageName.set("com.kmp")
+        }
+    }
+}
+tasks.register("makedb"){
+    val a = dependsOn("generateCommonMainKMP_DBInterface")
+    val b = dependsOn("generateSqlDelightInterface")
+    val c = dependsOn("verifyCommonMainKMP_DBMigration")
+    val d = dependsOn("verifySqlDelightMigration")
+    doLast {
+        if (a.didWork && b.didWork && c.didWork && d.didWork){
+            println("Database created Successful")
         }
     }
 }

@@ -1,12 +1,8 @@
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -32,16 +28,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import cafe.adriel.voyager.core.screen.Screen
-import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
-import cafe.adriel.voyager.navigator.currentOrThrow
-import cafe.adriel.voyager.transitions.ScaleTransition
 import cafe.adriel.voyager.transitions.SlideTransition
 import korlibs.io.async.delay
 import korlibs.time.TimeSpan
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
+import presentation.home_screen.HomeScreen
 
 @OptIn(ExperimentalResourceApi::class, ExperimentalFoundationApi::class)
 @Composable
@@ -94,7 +87,7 @@ fun App() {
                     Spacer(Modifier.width(3.dp).height(2.dp))
                 }
             }
-            Navigator(screen = HomeScreen(), onBackPressed = {
+            Navigator(screen = HomeScreen, onBackPressed = {
                 println("Back pressed")
                 true }){ navigator ->
                 SlideTransition(
@@ -114,37 +107,4 @@ fun App() {
 
 expect fun getPlatformName(): String
 
-class HomeScreen:Screen{
-    @Composable
-    override fun Content() {
-        val navigator = LocalNavigator.currentOrThrow
-        Column (Modifier.fillMaxWidth().height(300.dp).background(Color.DarkGray),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("Home Screen")
-            Button(onClick = {
-                navigator.push(ListScreen(listOf("asdf")))
-            }){
-                Text("Navigate")
-            }
-        }
-    }
 
-}
-data class ListScreen(val list: List<String>):Screen{
-    @Composable
-    override fun Content() {
-        val navigator = LocalNavigator.currentOrThrow
-        Column(Modifier.fillMaxWidth().height(300.dp).background(Color.LightGray),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center){
-            Text("List Screen")
-            Button(onClick = {
-                navigator.pop()
-            }){
-                Text("Navigate Back")
-            }
-        }
-    }
-
-}
