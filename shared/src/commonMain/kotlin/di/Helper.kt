@@ -8,5 +8,5 @@ fun initKoin(){
     }
 }
 val commonModule = module {
-    includes(coreModule, repositoryModule, useCasesModule, viewModelModule)
+    includes(expectModule,coreModule, repositoryModule, useCasesModule, viewModelModule)
 }

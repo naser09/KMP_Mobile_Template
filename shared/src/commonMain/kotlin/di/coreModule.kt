@@ -1,10 +1,10 @@
 package di
 
-import data.database.SqliteDatabaseImpl
+import com.kmp.KMP_DB
 import org.koin.dsl.module
 
-val coreModule = module {
+internal val coreModule = module {
     single {
-        SqliteDatabaseImpl.database()
+        KMP_DB(get())
     }
 }

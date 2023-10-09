@@ -5,7 +5,7 @@ import presentation.details_screen.DetailsScreenViewModel
 import presentation.home_screen.HomeScreenViewModel
 import presentation.list_screen.ListScreenViewModel
 
-val viewModelModule = module {
+internal val viewModelModule = module {
     factory { HomeScreenViewModel() }
     factory {
         DetailsScreenViewModel(get(),get())
