@@ -3,6 +3,7 @@ package presentation.list_screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Button
@@ -18,12 +19,15 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 
 data class ListScreen(val list: List<String>): Screen {
+    companion object{
+        val title = "List Screen"
+    }
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val viewModel =  getScreenModel<ListScreenViewModel>()
         Column(
-            Modifier.fillMaxWidth().height(300.dp).background(Color.LightGray),
+            Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center){
             list.forEach {

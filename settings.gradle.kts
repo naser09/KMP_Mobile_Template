@@ -40,4 +40,9 @@ dependencyResolutionManagement {
         google()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
+//    versionCatalogs {
+//        create("test"){
+//            from(files("gradle/test.versions.toml"))
+//        }
+//    }
 }
