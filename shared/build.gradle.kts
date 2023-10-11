@@ -27,7 +27,7 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material)
-             //   implementation(compose.animation)
+                implementation(compose.animation)
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
                 //serialization
@@ -37,7 +37,7 @@ kotlin {
                 //ktor client
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 //firebase auth
-                //implementation(libs.firebase.auth)
+                implementation(libs.firebase.auth)
                 //multiplatform setting
                 implementation(libs.multiplatform.settings.no.arg)
                 //voyeger
@@ -46,12 +46,15 @@ kotlin {
                 implementation(libs.voyager.koin)
                 //koin
                 implementation(libs.koin.core)
-               // implementation(libs.koin.compose)
-                //implementation(libs.koin.coroutine)
-                //korim 
-             //   implementation(libs.korim)
+                implementation(libs.koin.compose)
+                implementation(libs.koin.coroutine)
+
                 //sqldelight
                 implementation(libs.sqldelight.coroutine)
+                //kamel image loader   https://github.com/Kamel-Media/Kamel
+                implementation(libs.kamel.image)
+                //napier log  https://github.com/AAkira/Napier
+                implementation(libs.napier)
             }
         }
         val commonTest by getting {
@@ -63,9 +66,9 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api("androidx.activity:activity-compose:1.7.2")
-                api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.12.0")
+                api(libs.activity.compose)
+                api(libs.appcompat)
+                api(libs.core.ktx)
                 //sql driver
                 implementation(libs.sqldelight.androiddriver)
                 //ktor engine

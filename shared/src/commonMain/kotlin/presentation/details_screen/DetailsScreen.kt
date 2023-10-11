@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -27,13 +28,16 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import presentation.list_screen.ListScreen
 
 class DetailsScreen: Screen {
+    companion object{
+        val title = "Details Screen"
+    }
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
         val viewModel:DetailsScreenViewModel = getScreenModel()
         val text = remember { mutableStateOf("") }
         Column (
-            Modifier.fillMaxWidth().height(300.dp).background(Color.DarkGray),
+            Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center){
             Text("Home Screen ${viewModel.users.value.size}")

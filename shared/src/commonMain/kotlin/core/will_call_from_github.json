@@ -1,0 +1,144 @@
+{
+  "weather_responses": [
+    {
+      "city": "New York",
+      "temperature": 72.5,
+      "conditions": "Partly Cloudy",
+      "humidity": 60,
+      "wind_speed": 5.8
+    },
+    {
+      "city": "Los Angeles",
+      "temperature": 80.3,
+      "conditions": "Sunny",
+      "humidity": 45,
+      "wind_speed": 3.2
+    },
+    {
+      "city": "Chicago",
+      "temperature": 65.1,
+      "conditions": "Rainy",
+      "humidity": 75,
+      "wind_speed": 9.0
+    },
+    {
+      "city": "Miami",
+      "temperature": 88.2,
+      "conditions": "Mostly Sunny",
+      "humidity": 70,
+      "wind_speed": 6.5
+    },
+    {
+      "city": "Houston",
+      "temperature": 79.7,
+      "conditions": "Partly Cloudy",
+      "humidity": 55,
+      "wind_speed": 7.3
+    },
+    {
+      "city": "Seattle",
+      "temperature": 62.4,
+      "conditions": "Cloudy",
+      "humidity": 80,
+      "wind_speed": 4.8
+    },
+    {
+      "city": "Denver",
+      "temperature": 70.8,
+      "conditions": "Clear",
+      "humidity": 35,
+      "wind_speed": 10.2
+    },
+    {
+      "city": "Boston",
+      "temperature": 69.9,
+      "conditions": "Light Rain",
+      "humidity": 68,
+      "wind_speed": 8.1
+    },
+    {
+      "city": "San Francisco",
+      "temperature": 66.0,
+      "conditions": "Fog",
+      "humidity": 90,
+      "wind_speed": 3.5
+    },
+    {
+      "city": "Dallas",
+      "temperature": 76.3,
+      "conditions": "Partly Cloudy",
+      "humidity": 58,
+      "wind_speed": 6.9
+    },
+    {
+      "city": "Phoenix",
+      "temperature": 92.7,
+      "conditions": "Sunny",
+      "humidity": 12,
+      "wind_speed": 4.0
+    },
+    {
+      "city": "Las Vegas",
+      "temperature": 85.6,
+      "conditions": "Clear",
+      "humidity": 30,
+      "wind_speed": 5.6
+    },
+    {
+      "city": "Atlanta",
+      "temperature": 78.0,
+      "conditions": "Partly Cloudy",
+      "humidity": 50,
+      "wind_speed": 4.3
+    },
+    {
+      "city": "Philadelphia",
+      "temperature": 70.2,
+      "conditions": "Scattered Clouds",
+      "humidity": 63,
+      "wind_speed": 7.0
+    },
+    {
+      "city": "Washington, D.C.",
+      "temperature": 74.4,
+      "conditions": "Partly Cloudy",
+      "humidity": 56,
+      "wind_speed": 5.2
+    },
+    {
+      "city": "Orlando",
+      "temperature": 84.1,
+      "conditions": "Mostly Sunny",
+      "humidity": 72,
+      "wind_speed": 5.9
+    },
+    {
+      "city": "Minneapolis",
+      "temperature": 59.5,
+      "conditions": "Rain",
+      "humidity": 85,
+      "wind_speed": 11.1
+    },
+    {
+      "city": "Detroit",
+      "temperature": 67.8,
+      "conditions": "Partly Cloudy",
+      "humidity": 58,
+      "wind_speed": 6.5
+    },
+    {
+      "city": "San Diego",
+      "temperature": 77.9,
+      "conditions": "Sunny",
+      "humidity": 48,
+      "wind_speed": 3.9
+    },
+    {
+      "city": "Portland",
+      "temperature": 63.7,
+      "conditions": "Partly Cloudy",
+      "humidity": 70,
+      "wind_speed": 4.6
+    }
+  ]
+}
