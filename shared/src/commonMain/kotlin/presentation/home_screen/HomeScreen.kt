@@ -11,6 +11,7 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import presentation.details_screen.DetailsScreen
+import presentation.weather_screen.WeatherScreen
 
 object HomeScreen :Screen{
     val title="Home"
@@ -31,6 +32,11 @@ object HomeScreen :Screen{
                 viewModel.onDispose()
             }){
                 Text("navigate")
+            }
+            Button(onClick = {
+                navigator.push(WeatherScreen)
+            }){
+                Text("navigate to weather")
             }
         }
     }

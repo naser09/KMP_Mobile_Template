@@ -36,6 +36,8 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 //ktor client
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
                 //firebase auth
                 implementation(libs.firebase.auth)
                 //multiplatform setting
