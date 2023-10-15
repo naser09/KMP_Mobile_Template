@@ -1,0 +1,22 @@
+import java.lang.Double;
+
+CREATE TABLE weather_entity(
+  id INTEGER PRIMARY KEY NOT NULL,
+  city TEXT NOT NULL,
+  conditions TEXT NOT NULL,
+  humidity INTEGER NOT NULL ,
+  temperature TEXT AS Double NOT NULL,
+  wind_speed TEXT AS Double NOT NULL
+);
+
+CREATE INDEX weather_entity_city ON weather_entity(city);
+
+create_weather:
+INSERT INTO weather_entity (city,conditions,humidity,temperature,wind_speed)
+VALUES (?,?,?,?,?);
+
+get_weathers:
+SELECT * FROM weather_entity;
+
+get_weather_by_id:
+SELECT * FROM weather_entity WHERE id=:weather_id;

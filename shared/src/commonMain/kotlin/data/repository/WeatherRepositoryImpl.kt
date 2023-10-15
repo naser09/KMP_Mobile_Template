@@ -1,5 +1,6 @@
 package data.repository
 
+import com.kmp.KMP_DB
 import core.Constant
 import domain.model.Response
 import domain.model.Weather
@@ -13,13 +14,19 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
 
-class WeatherRepositoryImpl(private val httpClient: HttpClient):WeatherRepository {
+class WeatherRepositoryImpl(private val httpClient: HttpClient,private val kmpDb: KMP_DB):WeatherRepository {
+    private val weatherQueries = kmpDb.weatherEntiryQueries
     override fun getWeather(): Flow<List<Weather>> {
         return flow {
-            val response = httpClient.get(Constant.JSON_TEST_FILE_LINK)
+            val data = weatherQueries.get_weathers().executeAsList()
+            emit(data.map {d-> Weather(d.city,d.conditions,d.humidity.toInt(),d.temperature,d.wind_speed) })
             try {
-                println(response.bodyAsText())
-                emit(response.body<Response>().weatherResponses)
+                val response = httpClient.get(Constant.JSON_TEST_FILE_LINK).body<Response>()
+                response.weatherResponses.forEach {
+                    it.run { weatherQueries.create_weather(city,conditions,humidity.toLong(),temperature,windSpeed) }
+                }
+                val newData = weatherQueries.get_weathers().executeAsList()
+                emit(newData.map {d-> Weather(d.city,d.conditions,d.humidity.toInt(),d.temperature,d.wind_speed) })
             }catch (ex:NoTransformationFoundException){
                 println("Not the data i wanted !")
             }catch (ex:Exception){
