@@ -46,6 +46,7 @@ import org.jetbrains.compose.resources.painterResource
 import presentation.details_screen.DetailsScreen
 import presentation.home_screen.HomeScreen
 import presentation.list_screen.ListScreen
+import presentation.weather_screen.WeatherScreen
 
 @Composable
 fun App() {
@@ -60,6 +61,7 @@ fun App() {
                         is HomeScreen->HomeScreen.title
                         is DetailsScreen->DetailsScreen.title
                         is ListScreen -> ListScreen.title
+                        is WeatherScreen-> "Weather From json response"
                         else -> "Unknown"
                     }, backIcon = {
                         if (navigator.canPop){
@@ -116,40 +118,6 @@ fun OldApp() {
                     painterResource(res = "th.jpeg"),
                     null
                 )
-            }
-            var string by remember { mutableStateOf("value : 00") }
-            var pagerstete = rememberPagerState(
-                initialPage = 0,
-                initialPageOffsetFraction = 0f
-            ) {
-                10
-            }
-            LaunchedEffect(Unit) {
-                while (true) {
-                    delay(1000)
-                    val page =
-                        if (pagerstete.currentPage + 1 > pagerstete.pageCount - 1) 0 else pagerstete.currentPage + 1
-                    println("page = $page")
-                    pagerstete.animateScrollToPage(page)
-                }
-            }
-            HorizontalPager(
-                state = pagerstete,
-            ) { page ->
-
-                Box(Modifier.fillMaxWidth().height(45.dp).background(Color.Gray)) {
-                    Text("Current page $page", color = Color.White)
-                }
-            }
-            Row {
-                for (i in 0..<pagerstete.pageCount) {
-                    Box(
-                        Modifier.size(8.dp).clip(CircleShape).background(
-                            if (pagerstete.currentPage == i) Color.Blue else Color.Gray
-                        )
-                    )
-                    Spacer(Modifier.width(3.dp).height(2.dp))
-                }
             }
         }
 }

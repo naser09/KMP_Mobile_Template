@@ -11,6 +11,7 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import presentation.details_screen.DetailsScreen
+import presentation.home_screen.components.ItemAutoSlider
 import presentation.weather_screen.WeatherScreen
 
 object HomeScreen :Screen{
@@ -20,16 +21,9 @@ object HomeScreen :Screen{
         val viewModel = getScreenModel<HomeScreenViewModel>()
         val navigator = LocalNavigator.currentOrThrow
         Column (modifier = Modifier.fillMaxSize()){
-            Text(viewModel.seconds.value.toString())
-            Button(onClick = { viewModel.startCoroutine() }){
-                Text("Start")
-            }
-            Button(onClick = {viewModel.stopCoroutine() }){
-                Text("Stop")
-            }
+            ItemAutoSlider(viewModel)
             Button(onClick = {
                 navigator.push(DetailsScreen())
-                viewModel.onDispose()
             }){
                 Text("navigate")
             }

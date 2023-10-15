@@ -45,6 +45,7 @@ class DetailsScreen: Screen {
 
             Button(onClick = {
                 viewModel.createUser(text.value)
+                text.value = ""
             }){
                 Text("Create User")
             }
