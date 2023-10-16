@@ -1,4 +1,4 @@
-import java.lang.Double;
+import kotlin.Double;
 
 CREATE TABLE weather_entity(
   id INTEGER PRIMARY KEY NOT NULL,

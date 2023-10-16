@@ -79,8 +79,8 @@ Here are the main dependencies used in this project, categorized by their respec
 - **Koin**:
     - `libs.koin.core`: Koin Dependency Injection library.
 
-- **Korim**:
-    - `com.soywiz.korlibs.korim:korim:4.0.10`: Korim library for graphics and image processing.
+- **Kamel**:
+    - library for graphics and image processing.
 
 ### Common Test
 

@@ -91,7 +91,7 @@ fun DefaultScafold(title:String,backIcon:@Composable ()->Unit,content: @Composab
         modifier = Modifier.fillMaxSize(),
         scaffoldState = scaffoldState,
         topBar = {
-            TopAppBar(modifier = Modifier.fillMaxWidth().height(45.dp),
+            TopAppBar(modifier = Modifier.fillMaxWidth().height(75.dp),
                 title = { Text(title) },
                 navigationIcon = {backIcon()},
                 backgroundColor = MaterialTheme.colors.primary)
@@ -101,7 +101,7 @@ fun DefaultScafold(title:String,backIcon:@Composable ()->Unit,content: @Composab
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalResourceApi::class)
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun OldApp() {
     var greetingText by remember { mutableStateOf("Hello, World!") }

@@ -9,12 +9,10 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.NoTransformationFoundException
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.statement.bodyAsText
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.json.Json
 
-class WeatherRepositoryImpl(private val httpClient: HttpClient,private val kmpDb: KMP_DB):WeatherRepository {
+class WeatherRepositoryImpl(private val httpClient: HttpClient, kmpDb: KMP_DB):WeatherRepository {
     private val weatherQueries = kmpDb.weatherEntiryQueries
     override fun getWeather(): Flow<List<Weather>> {
         return flow {

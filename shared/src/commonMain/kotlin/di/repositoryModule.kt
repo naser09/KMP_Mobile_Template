@@ -12,6 +12,6 @@ internal val repositoryModule = module {
         UserRepositoryImpl(database = get())
     }
     factory <WeatherRepository>{
-        WeatherRepositoryImpl(get())
+        WeatherRepositoryImpl(get(),get())
     }
 }
